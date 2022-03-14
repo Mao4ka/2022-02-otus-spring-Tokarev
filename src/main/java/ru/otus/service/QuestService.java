@@ -1,6 +1,6 @@
 package ru.otus.service;
 
-public interface QuestionnaireService {
+public interface QuestService {
     void studentSurvey();
 }
 

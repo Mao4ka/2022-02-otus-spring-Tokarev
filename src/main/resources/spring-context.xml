@@ -4,10 +4,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="questRepo" class="ru.otus.repository.QuestionnaireRepository">
+    <bean id="questRepo" class="ru.otus.dao.repository.QuestRepository">
     </bean>
 
-    <bean id="questService" class="ru.otus.service.impl.QuestionnaireServiceImpl">
+    <bean id="questService" class="ru.otus.service.impl.QuestServiceImpl">
         <constructor-arg ref="questRepo"/>
     </bean>
 

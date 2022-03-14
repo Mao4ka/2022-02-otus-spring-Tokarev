@@ -1,7 +1,7 @@
-package ru.otus.dao;
+package ru.otus.dao.entity;
 
 // ToDo: все же нужно загрузить Ломбок...
-public class Questionnaire {
+public class Quest {
 
     private String question;
     private String answer1;
@@ -9,14 +9,14 @@ public class Questionnaire {
     private String answer3;
     private String answer4;
 
-    public Questionnaire() {
+    public Quest() {
     }
 
     public String getQuestion() {
         return question;
     }
 
-    public Questionnaire(String question, String answer1, String answer2, String answer3, String answer4) {
+    public Quest(String question, String answer1, String answer2, String answer3, String answer4) {
         this.question = question;
         this.answer1 = answer1;
         this.answer2 = answer2;

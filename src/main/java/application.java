@@ -1,12 +1,12 @@
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import ru.otus.service.QuestionnaireService;
+import ru.otus.service.QuestService;
 
 public class application {
 
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/spring-context.xml");
 
-        QuestionnaireService questionnaireService = context.getBean(QuestionnaireService.class);
-        questionnaireService.studentSurvey();
+        QuestService questService = context.getBean(QuestService.class);
+        questService.studentSurvey();
     }
 }
