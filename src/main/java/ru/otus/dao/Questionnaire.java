@@ -1,5 +1,6 @@
 package ru.otus.dao;
 
+// ToDo: все же нужно загрузить Ломбок...
 public class Questionnaire {
 
     private String question;
