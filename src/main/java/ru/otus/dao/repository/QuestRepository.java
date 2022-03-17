@@ -7,20 +7,19 @@ import ru.otus.utils.StringUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-// ToDo: lombok: @Slf4j
 public class QuestRepository {
-
-    public static final String FILE_PATH = "src/main/resources/questionnaire.csv";
 
     private static final String LINE_SEPARATOR = ",";
 
     private static final short CSV_SIZE = 5;
 
+    private String filePath;
+
     public List<Quest> getQuestionnaire() {
 
         List<Quest> questionnaire = new ArrayList<>();
 
-        StringUtils.getCsvWithTitle(FILE_PATH, LINE_SEPARATOR).forEach(parsedLine -> {
+        StringUtils.getCsvWithTitle(filePath, LINE_SEPARATOR).forEach(parsedLine -> {
             List<String> processedLine = StringUtils.prepareArrayBySize(parsedLine, CSV_SIZE);
 
             questionnaire.add(new Quest(processedLine.get(0), processedLine.get(1), processedLine.get(2),
@@ -28,6 +27,10 @@ public class QuestRepository {
         });
 
         return questionnaire;
+    }
+
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
     }
 
 }

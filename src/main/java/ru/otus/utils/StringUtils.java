@@ -28,7 +28,6 @@ public class StringUtils {
         File csvFile = new File(filePath);
 
         if (csvFile.isFile()) {
-
             try {
                 FileReader fileReader = new FileReader(csvFile);
                 BufferedReader csvReader = new BufferedReader(fileReader);
@@ -39,7 +38,6 @@ public class StringUtils {
                     stringMassive.add(parsedLine);
                 }
                 csvReader.close();
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -57,6 +55,7 @@ public class StringUtils {
 
     public static List<String> prepareArrayBySize(List<String> rowArray, int requiredSize) {
         List<String> newArray = new ArrayList<>();
+
         IntStream.range(0, requiredSize).forEachOrdered(index -> {
             if (index < rowArray.size()) {
                 newArray.add(rowArray.get(index));
