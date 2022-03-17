@@ -9,6 +9,8 @@ import java.util.List;
 // ToDo: lombok: @RequiredArgsConstructor
 public class QuestServiceImpl implements QuestService {
 
+    private final static String PREFIX = "\n    - ";
+
     private final QuestRepository questRepository;
 
     public QuestServiceImpl(QuestRepository questRepository) {
@@ -16,12 +18,25 @@ public class QuestServiceImpl implements QuestService {
     }
 
     public void studentSurvey() {
-        System.out.println("Шарик, - ты балбес!");
         List<Quest> questionnaire = questRepository.getQuestionnaire();
 
-        questionnaire.stream().forEachOrdered(quest -> System.out.println(quest.getQuestion().toString()));
+        System.out.println("Checking your erudition: \n");
 
-        //System.out.println(questionnaire.getQuestion());
+        questionnaire.forEach(quest -> System.out.println(createOutputMessage(quest)));
     }
 
+    private String createOutputMessage(Quest quest) {
+        StringBuilder outputMessage = new StringBuilder(quest.getQuestion());
+        outputMessage.append(addPrefix(quest.getAnswer1()));
+        outputMessage.append(addPrefix(quest.getAnswer2()));
+        outputMessage.append(addPrefix(quest.getAnswer3()));
+        outputMessage.append(addPrefix(quest.getAnswer4()));
+        outputMessage.append("\n");
+
+        return outputMessage.toString();
+    }
+
+    private String addPrefix(String message) {
+        return PREFIX + message;
+    }
 }
