@@ -11,6 +11,9 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 @Ignore
+/**
+ * очень усталю потомю в следующей версии с нормальной конфигурацией через анноташки
+ */
 public class QuestRepositoryTest {
 
     @Autowired
@@ -21,7 +24,7 @@ public class QuestRepositoryTest {
 
         List<Quest> quest = questRepository.getQuestionnaire();
 
-        assertEquals(1,1);
+        assertEquals(5,quest.size());
     }
 
 }

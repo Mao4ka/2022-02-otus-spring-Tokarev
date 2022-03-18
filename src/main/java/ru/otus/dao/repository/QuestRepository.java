@@ -1,12 +1,14 @@
 package ru.otus.dao.repository;
 
 
+import lombok.Setter;
 import ru.otus.dao.entity.Quest;
 import ru.otus.utils.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Setter
 public class QuestRepository {
 
     private static final String LINE_SEPARATOR = ",";
@@ -29,8 +31,6 @@ public class QuestRepository {
         return questionnaire;
     }
 
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
-    }
+
 
 }
