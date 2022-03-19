@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 
 @Ignore
 /**
- * очень усталю потомю в следующей версии с нормальной конфигурацией через анноташки
+ * очень устал. потом, в следующей версии с нормальной конфигурацией через анноташки
  */
 public class QuestRepositoryTest {
 

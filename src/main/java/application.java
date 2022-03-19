@@ -8,4 +8,5 @@ public class application {
         QuestService questService = context.getBean(QuestService.class);
         questService.studentSurvey();
     }
+
 }

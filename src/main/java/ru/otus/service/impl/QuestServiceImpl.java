@@ -23,13 +23,11 @@ public class QuestServiceImpl implements QuestService {
     }
 
     private String createOutputMessage(Quest quest) {
-        String outputMessage = quest.getQuestion() + addPrefix(quest.getAnswer1()) +
+        return quest.getQuestion() + addPrefix(quest.getAnswer1()) +
                 addPrefix(quest.getAnswer2()) +
                 addPrefix(quest.getAnswer3()) +
                 addPrefix(quest.getAnswer4()) +
                 "\n";
-
-        return outputMessage;
     }
 
     private String addPrefix(String message) {
