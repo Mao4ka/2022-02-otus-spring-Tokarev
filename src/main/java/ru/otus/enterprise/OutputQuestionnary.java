@@ -1,29 +1,20 @@
-package ru.otus.service.impl;
+package ru.otus.enterprise;
 
-import lombok.AllArgsConstructor;
 import ru.otus.dao.entity.Quest;
-import ru.otus.dao.repository.QuestRepository;
-import ru.otus.service.QuestService;
 
 import java.util.List;
 
-@AllArgsConstructor
-public class QuestServiceImpl implements QuestService {
+public class OutputQuestionnary {
 
     private final static String PREFIX = "\n    - ";
 
-    private final QuestRepository questRepository;
-
-    public void studentSurvey() {
-        List<Quest> questionnaire = questRepository.getQuestionnaire();
-
-        System.out.println("Checking your erudition: \n");
-
+    public void printQuestionnaire(List<Quest> questionnaire) {
         questionnaire.forEach(quest -> System.out.println(createOutputMessage(quest)));
     }
 
     private String createOutputMessage(Quest quest) {
-        return quest.getQuestion() + addPrefix(quest.getAnswer1()) +
+        return quest.getQuestion() +
+                addPrefix(quest.getAnswer1()) +
                 addPrefix(quest.getAnswer2()) +
                 addPrefix(quest.getAnswer3()) +
                 addPrefix(quest.getAnswer4()) +
