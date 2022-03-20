@@ -5,7 +5,7 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="questRepo" class="ru.otus.dao.repository.QuestRepository">
-        <property name="filePath" value="src/main/resources/questionnaire.csv"/>
+        <property name="filePath" value="src/Main/resources/questionnaire.csv"/>
     </bean>
 
     <bean id="questOutput" class="ru.otus.enterprise.OutputQuestionnary">
