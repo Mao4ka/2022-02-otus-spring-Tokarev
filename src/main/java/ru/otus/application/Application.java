@@ -1,13 +1,13 @@
 package ru.otus.application;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import ru.otus.dao.entity.Quest;
 import ru.otus.dao.repository.QuestRepository;
 import ru.otus.enterprise.OutputQuestionnary;
 
 import java.util.List;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class Application {
 
     private final QuestRepository questRepository;

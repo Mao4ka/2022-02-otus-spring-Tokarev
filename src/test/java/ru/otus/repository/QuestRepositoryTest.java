@@ -1,30 +1,27 @@
 package ru.otus.repository;
 
-import org.junit.Ignore;
-import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.assertj.core.internal.bytebuddy.implementation.bind.annotation.IgnoreForBinding;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import ru.otus.dao.entity.Quest;
 import ru.otus.dao.repository.QuestRepository;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
-@Ignore
-/**
- * очень устал. потом, в следующей версии с нормальной конфигурацией через анноташки
- */
-public class QuestRepositoryTest {
 
-    @Autowired
-    public QuestRepository questRepository;
+@DisplayName("Ыть!")
+class QuestRepositoryTest {
 
+    private final QuestRepository questRepository = new QuestRepository("src/main/resources/questionnaire.csv");
+
+    @IgnoreForBinding
+    @DisplayName("и еще раз Ыть!")
     @Test
     public void testGetQuestionnaire() {
-
         List<Quest> quest = questRepository.getQuestionnaire();
-
-        assertEquals(5,quest.size());
+        assertThat(5).isEqualTo(quest.size());
     }
 
 }

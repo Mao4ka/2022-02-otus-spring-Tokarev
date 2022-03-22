@@ -1,16 +1,13 @@
 package ru.otus.dao.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+import java.util.List;
 
 @Getter
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class Quest {
-
     private final String question;
-    private final String answer1;
-    private final String answer2;
-    private final String answer3;
-    private final String answer4;
-
+    private final List<String> answers;
 }
