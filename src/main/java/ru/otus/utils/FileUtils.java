@@ -4,39 +4,48 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.net.URL;
+import java.util.HashMap;
 import java.util.List;
-import java.util.stream.IntStream;
+import java.util.Map;
 
 public class FileUtils {
 
-    public static List<List<String>> getCsv(String filePath, String lineSeparator) {
-        List<List<String>> stringMassive = new ArrayList<>();
-        File csvFile = new File(filePath);
+    public static Map<Integer, List<String>> getCsv(String filePath, String lineSeparator) throws IOException {
+        Map<Integer, List<String>> stringMap = new HashMap<>();
+
+        FileUtils fileUtils = new FileUtils();
+        File csvFile = fileUtils.getFileFromResources(filePath);
 
         if (csvFile.isFile()) {
-            try {
-                FileReader fileReader = new FileReader(csvFile);
-                BufferedReader csvReader = new BufferedReader(fileReader);
-
+            try (BufferedReader csvReader = new BufferedReader(new FileReader(csvFile))) {
                 String row;
+                int i = 0;
                 while ((row = csvReader.readLine()) != null) {
                     List<String> parsedLine = StringUtils.parseLine(row, lineSeparator);
-                    stringMassive.add(parsedLine);
+                    stringMap.put(i,parsedLine);
+                    i++;
                 }
-                csvReader.close();
-            } catch (IOException e) {
-                e.printStackTrace();
             }
         }
-
-        return stringMassive;
+        return stringMap;
     }
 
-    public static List<List<String>> getCsvWithTitle(String filePath, String lineSeparator) {
-        List<List<String>> rowStringMassive =  getCsv(filePath, lineSeparator);
-        List<List<String>> newStringMassive  = new ArrayList<>();
-        IntStream.range(1, rowStringMassive.size()).forEachOrdered(index -> newStringMassive.add(rowStringMassive.get(index)));
-        return newStringMassive;
+    public static  Map<Integer, List<String>> getCsvWithTitle(String filePath, String lineSeparator) throws IOException {
+        Map<Integer, List<String>> stringMap =  getCsv(filePath, lineSeparator);
+        stringMap.remove(0);
+        return stringMap;
     }
+
+    private File getFileFromResources(String fileName) {
+        ClassLoader classLoader = getClass().getClassLoader();
+
+        URL resource = classLoader.getResource(fileName);
+        if (resource == null) {
+            throw new IllegalArgumentException("file is not found!");
+        } else {
+            return new File(resource.getFile());
+        }
+    }
+
 }

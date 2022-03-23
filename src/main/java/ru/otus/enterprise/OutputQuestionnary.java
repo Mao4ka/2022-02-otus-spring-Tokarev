@@ -7,8 +7,6 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class OutputQuestionnary {
 
-    private final static String PREFIX = "\n    - ";
-
     public void printQuestionnaire(List<Quest> questionnaire) {
         questionnaire.forEach(quest -> System.out.println(createOutputMessage(quest)));
     }
@@ -20,6 +18,6 @@ public class OutputQuestionnary {
     }
 
     private String addPrefix(String message) {
-        return PREFIX + message;
+        return "\n    - " + message;
     }
 }

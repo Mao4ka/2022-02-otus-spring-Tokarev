@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @DisplayName("Ыть!")
 class QuestRepositoryTest {
 
-    private final QuestRepository questRepository = new QuestRepository("src/main/resources/questionnaire.csv");
+    private final QuestRepository questRepository = new QuestRepository("questionnaire.csv");
 
     @IgnoreForBinding
     @DisplayName("и еще раз Ыть!")
